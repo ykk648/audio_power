@@ -1,3 +1,4 @@
+git+https://github.com/CNChTu/FCPE
 git+https://github.com/m-bain/whisperx.git
 openai==0.28
 python-dotenv

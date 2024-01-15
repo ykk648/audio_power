@@ -28,13 +28,24 @@ class Hubert(ModelBase):
         super().__init__(MODEL_ZOO[model_type], provider)
         self.model_type = model_type
 
-    def forward(self, input_audio, padding_mask):
-        return self.model.forward([input_audio, padding_mask])[0]
+    def forward(self, input_audio):
+        """
+        :param input_audio: (samples)
+        :param padding_mask: (samples//320, 768)
+        :return:
+        """
+        padding_mask = np.zeros_like(input_audio, dtype=bool)
+        return self.model.forward([input_audio[None, ...].astype(np.float32), padding_mask])[0][0]
 
 
 if __name__ == '__main__':
-    input_audio = np.random.random((1, 7040)).astype(np.float32)
-    padding_mask = np.zeros_like(input_audio, dtype=bool)
+    import librosa
+
+    audio_path = 'resources/guangdian.wav'
+    input_audio = librosa.load(audio_path, sr=16000, mono=True)[0]
+    # input_audio = np.random.random((1, 7040)).astype(np.float32)
+
     hubert = Hubert('hubert_base_12_768', 'gpu')
-    embedding_out = hubert.forward(input_audio, padding_mask)
+    embedding_out = hubert.forward(input_audio)
+    print(embedding_out)
     print(embedding_out.shape)
