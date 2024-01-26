@@ -5,7 +5,7 @@
 """
 partly borrowed from https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/0de65053247fb616fa696e4c40d32411174b6310/tools/rvc_for_realtime.py#L321
 """
-
+import numpy as np
 from torchfcpe import spawn_bundled_infer_model
 import torch
 
@@ -15,8 +15,7 @@ pip install git+https://github.com/CNChTu/FCPE
 
 
 class FCPE:
-    def __init__(self, model_type='rmvpe_onnx', device='cuda'):
-        self.model_type = model_type
+    def __init__(self, device='cuda'):
         self.device = device
         self.model_fcpe = spawn_bundled_infer_model(self.device)
 
@@ -27,12 +26,14 @@ class FCPE:
             threshold: (128, samples)
         Returns: torch.Size([samples])
         """
+        if isinstance(audio_mel, np.ndarray):
+            audio_mel = torch.tensor(audio_mel)
         f0 = self.model_fcpe.infer(audio_mel.to(self.device).unsqueeze(0).float(),
                                    sr=16000,
                                    decoder_mode="local_argmax",
                                    threshold=threshold,
                                    )
-        return f0[0].squeeze(1)
+        return f0[0].cpu().squeeze(1)
 
 
 if __name__ == '__main__':
@@ -42,7 +43,7 @@ if __name__ == '__main__':
 
     from cv2box import MyFpsCounter
 
-    fcpe = FCPE(model_type='rmvpe_mel_include', device='cuda')
+    fcpe = FCPE(device='cuda')
     # fps: 128 GPU: 0.6G
     with MyFpsCounter() as mfc:
         for _ in range(100):

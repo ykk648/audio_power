@@ -6,7 +6,6 @@
 partly borrowed from https://github.com/w-okada/voice-changer/blob/master/server/voice_changer/RVC/embedder/FairseqHubert.py
 """
 import torch
-from torch import device
 from fairseq import checkpoint_utils
 
 MODEL_ZOO = {
@@ -53,7 +52,17 @@ class FairseqHubert:
 
 
 if __name__ == '__main__':
-    input_audio = torch.rand((1, 4960))
+    import librosa
+
+    audio_path = 'resources/guangdian.wav'
+    input_audio = torch.tensor(librosa.load(audio_path, sr=16000, mono=True)[0][None, ...])
+    # input_audio = np.random.random((1, 7040)).astype(np.float32)
+
     fh = FairseqHubert('hubert_base', 'cuda')
-    embedding_out = fh.forward(input_audio, 12, False)
-    print(embedding_out.shape)
+
+    from cv2box import MyFpsCounter
+    with MyFpsCounter() as mfc:
+        for _ in range(100):
+            embedding_out = fh.forward(input_audio, 9, True)
+        print(embedding_out)
+        print(embedding_out.shape)

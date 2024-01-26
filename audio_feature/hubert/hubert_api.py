@@ -17,14 +17,24 @@ shape:[['Sliceoutput_x_dim_0', 'output_x_dynamic_axes_1', 'output_x_dynamic_axes
 type:['tensor(float)']
 """
 MODEL_ZOO = {
+    'hubert_base_onnx': {
+        # 'model_path': 'test.onnx'
+        'model_path': 'pretrain_models/audio_lib/hubert/hubert_base.onnx'
+    },
     'hubert_base_12_768': {
         'model_path': 'pretrain_models/audio_lib/hubert/hubert_base_12_768.onnx'
+    },
+    'hubert_base_12_768_fp16': {
+        'model_path': 'pretrain_models/audio_lib/hubert/hubert_base_12_768_fp16.onnx'
+    },
+    'hubert_base_9_256_proj_fp16': {
+        'model_path': 'pretrain_models/audio_lib/hubert/hubert_base_9_256_proj_fp16.onnx'
     },
 }
 
 
 class Hubert(ModelBase):
-    def __init__(self, model_type='hubert_base_12_768', provider='gpu'):
+    def __init__(self, model_type='hubert_base_12_768_fp16', provider='gpu'):
         super().__init__(MODEL_ZOO[model_type], provider)
         self.model_type = model_type
 
@@ -34,18 +44,33 @@ class Hubert(ModelBase):
         :param padding_mask: (samples//320, 768)
         :return:
         """
+        # https://github.com/microsoft/onnxruntime/issues/7563
+        # 输入维度不能被40整除，onnx不支持
+        if input_audio.shape[1] % 40 == 0:
+            input_audio = np.pad(input_audio, ((0, 0), (0, 1)))
+            # padding_mask = np.pad(padding_mask, ((0, 0), (0, False)))
         padding_mask = np.zeros_like(input_audio, dtype=bool)
-        return self.model.forward([input_audio[None, ...].astype(np.float32), padding_mask])[0][0]
+        if self.model_type in ['hubert_base_12_768_fp16']:
+            input_audio = input_audio.astype(np.float16)
+            return self.model.forward([input_audio, padding_mask])[0].astype(np.float32)
+        if self.model_type in ['hubert_base_9_256_proj_fp16']:
+            input_audio = input_audio.astype(np.float16)
+            return self.model.forward([input_audio, padding_mask])[0].astype(np.float32)[None, ...]
+        return self.model.forward([input_audio, padding_mask])[0]
 
 
 if __name__ == '__main__':
     import librosa
 
     audio_path = 'resources/guangdian.wav'
-    input_audio = librosa.load(audio_path, sr=16000, mono=True)[0]
+    input_audio = librosa.load(audio_path, sr=16000, mono=True)[0][None, ...]
     # input_audio = np.random.random((1, 7040)).astype(np.float32)
 
-    hubert = Hubert('hubert_base_12_768', 'gpu')
-    embedding_out = hubert.forward(input_audio)
-    print(embedding_out)
-    print(embedding_out.shape)
+    hubert = Hubert('hubert_base_12_768_fp16', 'gpu')
+
+    from cv2box import MyFpsCounter
+    with MyFpsCounter() as mfc:
+        for _ in range(100):
+            embedding_out = hubert.forward(input_audio)
+        print(embedding_out)
+        print(embedding_out.shape)
