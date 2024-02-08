@@ -58,19 +58,3 @@ class Hubert(ModelBase):
             return self.model.forward([input_audio, padding_mask])[0].astype(np.float32)[None, ...]
         return self.model.forward([input_audio, padding_mask])[0]
 
-
-if __name__ == '__main__':
-    import librosa
-
-    audio_path = 'resources/guangdian.wav'
-    input_audio = librosa.load(audio_path, sr=16000, mono=True)[0][None, ...]
-    # input_audio = np.random.random((1, 7040)).astype(np.float32)
-
-    hubert = Hubert('hubert_base_12_768_fp16', 'gpu')
-
-    from cv2box import MyFpsCounter
-    with MyFpsCounter() as mfc:
-        for _ in range(100):
-            embedding_out = hubert.forward(input_audio)
-        print(embedding_out)
-        print(embedding_out.shape)

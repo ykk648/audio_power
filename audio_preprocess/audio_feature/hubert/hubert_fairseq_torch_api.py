@@ -7,6 +7,7 @@ partly borrowed from https://github.com/w-okada/voice-changer/blob/master/server
 """
 import torch
 from fairseq import checkpoint_utils
+import numpy as np
 
 MODEL_ZOO = {
     'hubert_base': {
@@ -27,7 +28,7 @@ class FairseqHubert:
         # if isHalf:
         #     model = model.half()
 
-    def forward(self, feats: torch.Tensor, embOutputLayer=9, useFinalProj=True) -> torch.Tensor:
+    def forward(self, feats, embOutputLayer=12, useFinalProj=False):
         """
         Args:
             feats: torch.Size([1, 4960])
@@ -35,6 +36,9 @@ class FairseqHubert:
             useFinalProj:
         Returns: torch.Size([1, 15, 768])
         """
+        if isinstance(feats, np.ndarray):
+            feats = torch.tensor(feats).to(self.device)
+
         padding_mask = torch.BoolTensor(feats.shape).to(self.device).fill_(False)
         inputs = {
             "source": feats.to(self.device),
@@ -48,21 +52,4 @@ class FairseqHubert:
                 feats = self.model.final_proj(logits[0])
             else:
                 feats = logits[0]
-        return feats
-
-
-if __name__ == '__main__':
-    import librosa
-
-    audio_path = 'resources/guangdian.wav'
-    input_audio = torch.tensor(librosa.load(audio_path, sr=16000, mono=True)[0][None, ...])
-    # input_audio = np.random.random((1, 7040)).astype(np.float32)
-
-    fh = FairseqHubert('hubert_base', 'cuda')
-
-    from cv2box import MyFpsCounter
-    with MyFpsCounter() as mfc:
-        for _ in range(100):
-            embedding_out = fh.forward(input_audio, 9, True)
-        print(embedding_out)
-        print(embedding_out.shape)
+        return feats.cpu().detach().numpy()
