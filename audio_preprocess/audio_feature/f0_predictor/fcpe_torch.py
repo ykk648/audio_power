@@ -19,16 +19,17 @@ class FCPE:
         self.device = device
         self.model_fcpe = spawn_bundled_infer_model(self.device)
 
-    def forward(self, audio_mel, threshold=0.006):
+    def forward(self, audio_in, threshold=0.006):
         """
         Args:
-            audio_mel: (128, samples)
+            audio_in: (128, samples)
             threshold: (128, samples)
         Returns: torch.Size([samples])
         """
-        if isinstance(audio_mel, np.ndarray):
-            audio_mel = torch.tensor(audio_mel)
-        f0 = self.model_fcpe.infer(audio_mel.to(self.device).unsqueeze(0).float(),
+        if isinstance(audio_in, np.ndarray):
+            audio_in = torch.tensor(audio_in)
+
+        f0 = self.model_fcpe.infer(audio_in.to(self.device).unsqueeze(0).float(),
                                    sr=16000,
                                    decoder_mode="local_argmax",
                                    threshold=threshold,

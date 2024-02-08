@@ -1,7 +1,7 @@
 # -- coding: utf-8 --
 # @Time : 2023/11/7
 # @Author : ykk648
-# @Project : https://github.com/ykk648/AI_power
+
 """
 partly borrowed from https://github.com/w-okada/voice-changer/blob/master/server/voice_changer/RVC/embedder/FairseqHubert.py
 """
