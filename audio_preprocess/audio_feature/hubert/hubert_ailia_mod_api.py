@@ -15,6 +15,9 @@ MODEL_ZOO = {
     'hubert_base_ailia': {
         'model_path': 'pretrain_models/audio_lib/hubert/hubert_base_ailia_2_output.onnx'
     },
+    'hubert_base_ailia_fp16': {
+        'model_path': 'pretrain_models/audio_lib/hubert/hubert_base_ailia_2_output_fp16.onnx'
+    },
 }
 
 
@@ -26,8 +29,8 @@ class HubertAilia(ModelBase):
         padding_mask = np.zeros_like(input_audio, dtype=bool)
 
         if version == 'v1':
-            return self.model.forward([input_audio, padding_mask])[0]
+            return self.model.forward([input_audio.astype(self.model.input_type[0]), padding_mask])[0].astype(np.float32)
         elif version == 'v2':
-            return self.model.forward([input_audio, padding_mask])[1]
+            return self.model.forward([input_audio.astype(self.model.input_type[0]), padding_mask])[1].astype(np.float32)
         else:
             raise RuntimeError('Unsupported')
