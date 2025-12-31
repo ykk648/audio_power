@@ -1,0 +1,12 @@
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="zh-CN-YunxiaNeural">
+        <mstts:express-as style="cheerful" styledegree="2">
+          <prosody rate="+30.00%" pitch="high">
+            太好了,我是云夏,云彩的云,夏天的夏
+          </prosody>
+        </mstts:express-as>
+        <mstts:express-as style="angry" styledegree="0.01">
+            你看什么看,揍死你
+        </mstts:express-as>
+    </voice>
+</speak>

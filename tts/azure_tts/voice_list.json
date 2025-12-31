@@ -1,0 +1,429 @@
+{
+  "af": [
+    "No",
+    "af-ZA-AdriNeural",
+    "af-ZA-WillemNeural"
+  ],
+  "sq": [
+    "No",
+    "sq-AL-AnilaNeural",
+    "sq-AL-IlirNeural"
+  ],
+  "am": [
+    "No",
+    "am-ET-AmehaNeural",
+    "am-ET-MekdesNeural"
+  ],
+  "ar": [
+    "No",
+    "ar-DZ-AminaNeural",
+    "ar-DZ-IsmaelNeural",
+    "ar-BH-AliNeural",
+    "ar-BH-LailaNeural",
+    "ar-EG-SalmaNeural",
+    "ar-EG-ShakirNeural",
+    "ar-IQ-BasselNeural",
+    "ar-IQ-RanaNeural",
+    "ar-JO-SanaNeural",
+    "ar-JO-TaimNeural",
+    "ar-KW-FahedNeural",
+    "ar-KW-NouraNeural",
+    "ar-LB-LaylaNeural",
+    "ar-LB-RamiNeural",
+    "ar-LY-ImanNeural",
+    "ar-LY-OmarNeural",
+    "ar-MA-JamalNeural",
+    "ar-MA-MounaNeural",
+    "ar-OM-AbdullahNeural",
+    "ar-OM-AyshaNeural",
+    "ar-QA-AmalNeural",
+    "ar-QA-MoazNeural",
+    "ar-SA-HamedNeural",
+    "ar-SA-ZariyahNeural",
+    "ar-SY-AmanyNeural",
+    "ar-SY-LaithNeural",
+    "ar-TN-HediNeural",
+    "ar-TN-ReemNeural",
+    "ar-AE-FatimaNeural",
+    "ar-AE-HamdanNeural",
+    "ar-YE-MaryamNeural",
+    "ar-YE-SalehNeural"
+  ],
+  "az": [
+    "No",
+    "az-AZ-BabekNeural",
+    "az-AZ-BanuNeural"
+  ],
+  "bn": [
+    "No",
+    "bn-BD-NabanitaNeural",
+    "bn-BD-PradeepNeural",
+    "bn-IN-BashkarNeural",
+    "bn-IN-TanishaaNeural"
+  ],
+  "bs": [
+    "No",
+    "bs-BA-GoranNeural",
+    "bs-BA-VesnaNeural"
+  ],
+  "bg": [
+    "No",
+    "bg-BG-BorislavNeural",
+    "bg-BG-KalinaNeural"
+  ],
+  "my": [
+    "No",
+    "my-MM-NilarNeural",
+    "my-MM-ThihaNeural"
+  ],
+  "ca": [
+    "No",
+    "ca-ES-EnricNeural",
+    "ca-ES-JoanaNeural"
+  ],
+  "zh": [
+    "No",
+    "zh-HK-HiuGaaiNeural",
+    "zh-HK-HiuMaanNeural",
+    "zh-HK-WanLungNeural",
+    "zh-CN-XiaoxiaoNeural",
+    "zh-CN-XiaoyiNeural",
+    "zh-CN-YunjianNeural",
+    "zh-CN-YunxiNeural",
+    "zh-CN-YunxiaNeural",
+    "zh-CN-YunyangNeural",
+    "zh-CN-liaoning-XiaobeiNeural",
+    "zh-TW-HsiaoChenNeural",
+    "zh-TW-YunJheNeural",
+    "zh-TW-HsiaoYuNeural",
+    "zh-CN-shaanxi-XiaoniNeural"
+  ],
+  "hr": [
+    "No",
+    "hr-HR-GabrijelaNeural",
+    "hr-HR-SreckoNeural"
+  ],
+  "cs": [
+    "No",
+    "cs-CZ-AntoninNeural",
+    "cs-CZ-VlastaNeural"
+  ],
+  "da": [
+    "No",
+    "da-DK-ChristelNeural",
+    "da-DK-JeppeNeural"
+  ],
+  "nl": [
+    "No",
+    "nl-BE-ArnaudNeural",
+    "nl-BE-DenaNeural",
+    "nl-NL-ColetteNeural",
+    "nl-NL-FennaNeural",
+    "nl-NL-MaartenNeural"
+  ],
+  "en": [
+    "No",
+    "en-AU-NatashaNeural",
+    "en-AU-WilliamNeural",
+    "en-CA-ClaraNeural",
+    "en-CA-LiamNeural",
+    "en-HK-SamNeural",
+    "en-HK-YanNeural",
+    "en-IN-NeerjaExpressiveNeural",
+    "en-IN-NeerjaNeural",
+    "en-IN-PrabhatNeural",
+    "en-IE-ConnorNeural",
+    "en-IE-EmilyNeural",
+    "en-KE-AsiliaNeural",
+    "en-KE-ChilembaNeural",
+    "en-NZ-MitchellNeural",
+    "en-NZ-MollyNeural",
+    "en-NG-AbeoNeural",
+    "en-NG-EzinneNeural",
+    "en-PH-JamesNeural",
+    "en-US-AvaNeural",
+    "en-US-AndrewNeural",
+    "en-US-EmmaNeural",
+    "en-US-BrianNeural",
+    "en-PH-RosaNeural",
+    "en-SG-LunaNeural",
+    "en-SG-WayneNeural",
+    "en-ZA-LeahNeural",
+    "en-ZA-LukeNeural",
+    "en-TZ-ElimuNeural",
+    "en-TZ-ImaniNeural",
+    "en-GB-LibbyNeural",
+    "en-GB-MaisieNeural",
+    "en-GB-RyanNeural",
+    "en-GB-SoniaNeural",
+    "en-GB-ThomasNeural",
+    "en-US-AnaNeural",
+    "en-US-AriaNeural",
+    "en-US-ChristopherNeural",
+    "en-US-EricNeural",
+    "en-US-GuyNeural",
+    "en-US-JennyNeural",
+    "en-US-MichelleNeural",
+    "en-US-RogerNeural",
+    "en-US-SteffanNeural"
+  ],
+  "et": [
+    "No",
+    "et-EE-AnuNeural",
+    "et-EE-KertNeural"
+  ],
+  "fil": [
+    "No",
+    "fil-PH-AngeloNeural",
+    "fil-PH-BlessicaNeural"
+  ],
+  "fi": [
+    "No",
+    "fi-FI-HarriNeural",
+    "fi-FI-NooraNeural"
+  ],
+  "fr": [
+    "No",
+    "fr-BE-CharlineNeural",
+    "fr-BE-GerardNeural",
+    "fr-CA-ThierryNeural",
+    "fr-CA-AntoineNeural",
+    "fr-CA-JeanNeural",
+    "fr-CA-SylvieNeural",
+    "fr-FR-VivienneMultilingualNeural",
+    "fr-FR-RemyMultilingualNeural",
+    "fr-FR-DeniseNeural",
+    "fr-FR-EloiseNeural",
+    "fr-FR-HenriNeural",
+    "fr-CH-ArianeNeural",
+    "fr-CH-FabriceNeural"
+  ],
+  "gl": [
+    "No",
+    "gl-ES-RoiNeural",
+    "gl-ES-SabelaNeural"
+  ],
+  "ka": [
+    "No",
+    "ka-GE-EkaNeural",
+    "ka-GE-GiorgiNeural"
+  ],
+  "de": [
+    "No",
+    "de-AT-IngridNeural",
+    "de-AT-JonasNeural",
+    "de-DE-SeraphinaMultilingualNeural",
+    "de-DE-FlorianMultilingualNeural",
+    "de-DE-AmalaNeural",
+    "de-DE-ConradNeural",
+    "de-DE-KatjaNeural",
+    "de-DE-KillianNeural",
+    "de-CH-JanNeural",
+    "de-CH-LeniNeural"
+  ],
+  "el": [
+    "No",
+    "el-GR-AthinaNeural",
+    "el-GR-NestorasNeural"
+  ],
+  "gu": [
+    "No",
+    "gu-IN-DhwaniNeural",
+    "gu-IN-NiranjanNeural"
+  ],
+  "he": [
+    "No",
+    "he-IL-AvriNeural",
+    "he-IL-HilaNeural"
+  ],
+  "hi": [
+    "No",
+    "hi-IN-MadhurNeural",
+    "hi-IN-SwaraNeural"
+  ],
+  "hu": [
+    "No",
+    "hu-HU-NoemiNeural",
+    "hu-HU-TamasNeural"
+  ],
+  "is": [
+    "No",
+    "is-IS-GudrunNeural",
+    "is-IS-GunnarNeural"
+  ],
+  "id": [
+    "No",
+    "id-ID-ArdiNeural",
+    "id-ID-GadisNeural"
+  ],
+  "ga": [
+    "No",
+    "ga-IE-ColmNeural",
+    "ga-IE-OrlaNeural"
+  ],
+  "it": [
+    "No",
+    "it-IT-GiuseppeNeural",
+    "it-IT-DiegoNeural",
+    "it-IT-ElsaNeural",
+    "it-IT-IsabellaNeural"
+  ],
+  "ja": [
+    "No",
+    "ja-JP-KeitaNeural",
+    "ja-JP-NanamiNeural"
+  ],
+  "jv": [
+    "No",
+    "jv-ID-DimasNeural",
+    "jv-ID-SitiNeural"
+  ],
+  "kn": [
+    "No",
+    "kn-IN-GaganNeural",
+    "kn-IN-SapnaNeural"
+  ],
+  "kk": [
+    "No",
+    "kk-KZ-AigulNeural",
+    "kk-KZ-DauletNeural"
+  ],
+  "km": [
+    "No",
+    "km-KH-PisethNeural",
+    "km-KH-SreymomNeural"
+  ],
+  "ko": [
+    "No",
+    "ko-KR-HyunsuNeural",
+    "ko-KR-InJoonNeural",
+    "ko-KR-SunHiNeural"
+  ],
+  "lo": [
+    "No",
+    "lo-LA-ChanthavongNeural",
+    "lo-LA-KeomanyNeural"
+  ],
+  "lv": [
+    "No",
+    "lv-LV-EveritaNeural",
+    "lv-LV-NilsNeural"
+  ],
+  "lt": [
+    "No",
+    "lt-LT-LeonasNeural",
+    "lt-LT-OnaNeural"
+  ],
+  "mk": [
+    "No",
+    "mk-MK-AleksandarNeural",
+    "mk-MK-MarijaNeural"
+  ],
+  "ms": [
+    "No",
+    "ms-MY-OsmanNeural",
+    "ms-MY-YasminNeural"
+  ],
+  "ml": [
+    "No",
+    "ml-IN-MidhunNeural",
+    "ml-IN-SobhanaNeural"
+  ],
+  "mt": [
+    "No",
+    "mt-MT-GraceNeural",
+    "mt-MT-JosephNeural"
+  ],
+  "mr": [
+    "No",
+    "mr-IN-AarohiNeural",
+    "mr-IN-ManoharNeural"
+  ],
+  "mn": [
+    "No",
+    "mn-MN-BataaNeural",
+    "mn-MN-YesuiNeural"
+  ],
+  "ne": [
+    "No",
+    "ne-NP-HemkalaNeural",
+    "ne-NP-SagarNeural"
+  ],
+  "nb": [
+    "No",
+    "nb-NO-FinnNeural",
+    "nb-NO-PernilleNeural"
+  ],
+  "ps": [
+    "No",
+    "ps-AF-GulNawazNeural",
+    "ps-AF-LatifaNeural"
+  ],
+  "fa": [
+    "No",
+    "fa-IR-DilaraNeural",
+    "fa-IR-FaridNeural"
+  ],
+  "pl": [
+    "No",
+    "pl-PL-MarekNeural",
+    "pl-PL-ZofiaNeural"
+  ],
+  "pt": [
+    "No",
+    "pt-BR-ThalitaNeural",
+    "pt-BR-AntonioNeural",
+    "pt-BR-FranciscaNeural",
+    "pt-PT-DuarteNeural",
+    "pt-PT-RaquelNeural"
+  ],
+  "ro": [
+    "No",
+    "ro-RO-AlinaNeural",
+    "ro-RO-EmilNeural"
+  ],
+  "ru": [
+    "No",
+    "ru-RU-DmitryNeural",
+    "ru-RU-SvetlanaNeural"
+  ],
+  "sr": [
+    "No",
+    "sr-RS-NicholasNeural",
+    "sr-RS-SophieNeural"
+  ],
+  "si": [
+    "No",
+    "si-LK-SameeraNeural",
+    "si-LK-ThiliniNeural"
+  ],
+  "sk": [
+    "No",
+    "sk-SK-LukasNeural",
+    "sk-SK-ViktoriaNeural"
+  ],
+  "sl": [
+    "No",
+    "sl-SI-PetraNeural",
+    "sl-SI-RokNeural"
+  ],
+  "so": [
+    "No",
+    "so-SO-MuuseNeural",
+    "so-SO-UbaxNeural"
+  ],
+  "es": [
+    "No",
+    "es-AR-ElenaNeural",
+    "es-AR-TomasNeural",
+    "es-BO-MarceloNeural",
+    "es-BO-SofiaNeural",
+    "es-CL-CatalinaNeural",
+    "es-CL-LorenzoNeural",
+    "es-ES-XimenaNeural",
+    "es-CO-GonzaloNeural",
+    "es-CO-SalomeNeural",
+    "es-CR-Ju$WHƒì ‹ñI‹øH‹ÊH‹ÚèÕ°üÿ‹C¨uÇG,	   ÆG0ğƒKƒÈÿë‹CÁè¨t	ÇG,"   ëŞ‹C¨tH‹Ëè8  ƒc „ÀtÊH‹CH‰ğƒcşğƒKğƒc÷ƒc ‹C©À  uH‹Ëè~ÿÿ„ÀuH‹Ëè£  L‹ÇH‹Ó@ŠÎèe  „À„{ÿÿÿ@¶ÆH‹\$0H‹t$8HƒÄ _ÃÌH‰\$H‰t$WHƒì ‹ñI‹øH‹ÊH‹Úè	°üÿ‹C¨uÇG,	   ÆG0ğƒK¸ÿÿ  ë~‹CÁè¨t	ÇG,"   ëÜ‹C¨tH‹Ëèj   ƒc „ÀtÈH‹CH‰ğƒcşğƒKğƒc÷ƒc ‹C©À  uH‹ËèE}ÿÿ„ÀuH‹ËèÕ  L‹ÇH‹Ó·Îè  „À„yÿÿÿ·ÆH‹\$0H‹t$8HƒÄ _Ã@SHƒì ‹QÁêöÂt°ë`‹A¨Àt	H‹AH9tM‹Iè\ÊüÿH‹ØHƒøÿt;A¹   LD$83ÒH‹ÈÿQN	…Àt!HT$0H‹Ëÿ¯N	…ÀtH‹D$0H9D$8”Àë2ÀHƒÄ [ÃH‹ÄH‰XH‰hH‰p ˆHWHƒì H‹ÊI‹ğH‹Úè»®üÿ‹KLcĞöÁÀ„‘   ‹;3íH‹S+{HBH‰‹C ÿÈ‰C…ÿ~L‹ÎD‹ÇA‹Êè§vıÿ‹èH‹K;ïŠD$0ˆënABƒøv"I‹ÊH`£^	I‹ÂHÁøƒá?H‹ÂHÉHÈëH‘*R	öB8 tº3ÒA‹ÊDBè!õüÿHƒøÿu¦ğƒK°ëL‹ÎHT$0A¸   A‹Êè,vıÿƒø”ÀH‹\$8H‹l$@H‹t$HHƒÄ _ÃÌH‹ÄH‰XH‰hH‰p f‰HWHƒì H‹ÊI‹ğH‹ÚèÂ­üÿ‹KLcĞöÁÀ„”   ‹;3íH‹S+{HBH‰‹C ƒè‰C…ÿ~ L‹ÎD‹ÇA‹Êè­uıÿ‹èH‹K;ï·D$0f‰ënABƒøv"I‹ÊHd¢^	I‹ÂHÁøƒá?H‹ÂHÉHÈëH•)R	öB8 t¸3ÒA‹ÊDBè%ôüÿHƒøÿu¤ğƒK°ëL‹ÎHT$0A¸   A‹Êè0uıÿƒø”ÀH‹\$8H‹l$@H‹t$HHƒÄ _ÃÌH‹ÄH‰XUVWHh©Hìà   )pØH‹ "R	H3ÄH‰EH‹}‹òL‹ÇòU§HUŸò]Ÿ(ò‹Ùè0  …Àu1!D$0HUƒeïşHEŸH‰D$(HM¯HE§D‹ÎD‹ÃH‰D$ è  H‹}‹Ëè€  ‹Øèñxÿÿ„Àt%…Ût!òEŸWÛH‰|$((Ö‹ÖòD$ ‹Ëè  ë‹Ëè  ºÀÿ  H‹Ïè´ÎÿÿòEŸH‹MH3Ìèç÷úÿLœ$à   I‹[(A(sğI‹ã_^]ÃÌÌÌH‹ÄH‰XUVWHh±Hìğ   )pØ)xÈH‹(!R	H3ÄH‰EH‹}‹òL‹ÇòU‡HUw(ó(ú‹Ùè:  …Àu?‹E×HUƒd$0 HM—ƒàãòuÇƒÈD‹Î‰E×D‹ÃHEwH‰D$(HE‡H‰D$ è  H‹}‹Ëè|   ‹Øèíwÿÿ„Àt%…Ût!òEw(ŞH‰|$((×‹ÖòD$ ‹Ëè
+  ë‹Ëè‰   ºÀÿ  H‹Ïè°ÍÿÿòEwH‹MH3ÌèãöúÿLœ$ğ   I‹[(A(sğA({àI‹ã_^]ÃÌÌòXÁÃÌÌÌ‹ÁöÁ t¹   ë2¨t¹   ë'¨t¹   ë¹   „Át¹   ë¶À¹   #ÈÉ‹ÁÃÌHƒì(ƒétƒétƒùuè˜¢üÿÇ "   ëè‹¢üÿÇ !   HƒÄ(ÃH‰\$UVWATAUAVAWHƒìP3ÿ)t$@‹Ù)|$0ƒãM‹èH‹êD‹áDöÁtE„íyOèPÍÿÿƒã÷ée  ¹   D„átIºå	sè2ÍÿÿƒãûéG  ¾   D„æ„µ   Iºå
+ƒª   Nè	ÍÿÿI‹Å¹ `  H#Át`H=    t?H= @  tH;ÁuxòE f/.ÂòŞ}Âw\ëSòE f/Âw2òÃ}Âë:òE f/üÂv#òª}Âë(òE f/ãÂv
+ò‰}Âëò}ÂW(ÉÁòE ƒãşé„  AöÄ„z  Iºåƒo  òE‹ôAÁîWÿD#öf.Çz„G  HT$ èg  ‹T$ Â úÿÿòD$(úÎûÿÿ}òYÇD‹ö(ğé  H‹D$(D‹ßf/øDŠÏ@ŠÏD‰Œ$¨   ˆŒ$   A—ÃHÁè0fƒàfAÇf‰D$.úüÿÿ}Z‹D$(AºüÿÿD+Ò‹T$,D‹ÀD#ÆtE…öDDö„ÉE¶ÉAŠÈDEÎÑè‰D$(@„Ötºè‰D$(ÑêL+ÖuÊ‰T$,D‰Œ$¨   ˆŒ$   òt$(E…ÛtW5ÈÁòt$(f/øA—Ç„ÉuE„ÉtEè&ˆÿÿ…Àt=   t
