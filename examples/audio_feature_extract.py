@@ -4,13 +4,14 @@
 
 import librosa
 import torch
+import numpy as np
 
 from audio_preprocess.audio_feature.hubert.dphubert import DPHuBERT
 from audio_preprocess.audio_feature.hubert import Hubert, HubertAilia, FairseqHubert, ContentVec
 
 audio_path = 'resources/guangdian.wav'
 input_audio = librosa.load(audio_path, sr=16000, mono=True)[0][None, ...]
-# input_audio = np.random.random((1, 7040)).astype(np.float32)
+# input_audio = np.random.random((1, 1168000)).astype(np.float32)
 
 # DPHuBERT
 # hubert = DPHuBERT('dphubert', 'cuda')

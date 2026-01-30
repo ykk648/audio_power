@@ -3,7 +3,6 @@
 # @Author : ykk648
 
 """
-
 svc infer -c logs/44k/config.json -m logs/44k/G_2400.pth "*.wav"
 """
 
@@ -71,8 +70,8 @@ class SoVits:
 
 
 if __name__ == "__main__":
-    generator_path = 'data/G_329600.pth'
-    config_path = "data/config.json"
+    generator_path = 'G_329600.pth'
+    config_path = "config.json"
     cluster_model_path = None
     sv = SoVits(generator_path, config_path, cluster_model_path)
 

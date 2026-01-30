@@ -5,7 +5,7 @@
 """
 partly borrowed from
 """
-from audio_lib.rvc.torch_utils import SynthesizerTrnMs768NSFsid_ONNX, SynthesizerTrnMs256NSFsid_ONNX
+from .torch_utils import SynthesizerTrnMs768NSFsid_ONNX, SynthesizerTrnMs256NSFsid_ONNX
 import numpy as np
 import torch
 

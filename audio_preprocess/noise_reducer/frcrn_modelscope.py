@@ -8,10 +8,5 @@ from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 
 
-ans = pipeline(
-    Tasks.acoustic_noise_suppression,
-    model='/your_local_path/speech_frcrn_ans_cirm_16k')
-result = ans(
-    'https://modelscope.oss-cn-beijing.aliyuncs.com/test/audios/speech_with_noise.wav',
-    output_path='output.wav')
-
+ans = pipeline(Tasks.acoustic_noise_suppression, model='damo/speech_frcrn_ans_cirm_16k')
+result = ans(r"Anne-Hathaway.mp3", output_path='output.wav')
