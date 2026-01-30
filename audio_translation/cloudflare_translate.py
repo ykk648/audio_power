@@ -14,14 +14,17 @@ import os
 class CloudFlareTranslator:
     def __init__(self):
         self.key = os.getenv('CF_TRANSLATE')
-        self.retry_num = int(os.getenv('CF_TRANSLATE_RETRY_NUM'))
+        self.base_url = os.getenv('CF_TRANSLATE_URL', '').rstrip('/')  # 如 https://xxx.workers.dev
+        self.retry_num = int(os.getenv('CF_TRANSLATE_RETRY_NUM', '3'))
 
     def translate(self, text, src_lang='', dest_lang='en'):
+        if not self.base_url:
+            raise ValueError('请设置环境变量 CF_TRANSLATE_URL（你的 Cloudflare Workers 翻译 API 地址）')
         while self.retry_num > 0:
             # do not support \n
             text = text.replace('\n', '')
             # zh en
-            response = requests.get(url=f"https://tiny-dawn-a692.ykk648.workers.dev/?text={text}&source_language={src_lang}&target_language={dest_lang}&secret={self.key}")
+            response = requests.get(url=f"{self.base_url}/?text={text}&source_language={src_lang}&target_language={dest_lang}&secret={self.key}")
             result = response.json()
             if result['msg'] != 'ok':
                 self.retry_num -= 1

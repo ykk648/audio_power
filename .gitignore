@@ -1,0 +1,29 @@
+# 环境与密钥（勿提交真实 key）
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# 预训练模型（体积大，按需下载）
+# pretrain_models/
+
+# 输出与临时
+output/*.list
+*.log
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
