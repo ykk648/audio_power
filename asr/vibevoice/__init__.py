@@ -1,0 +1,1 @@
+from .vibevoice_asr import VibeVoiceASR
