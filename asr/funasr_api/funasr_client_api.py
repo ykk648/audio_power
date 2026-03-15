@@ -337,7 +337,7 @@ if __name__ == '__main__':
     
     # 创建客户端实例
     client = FunASRMicrophoneAPI(
-        host="192.168.1.1",  # 修改为你的FunASR服务器地址
+        host="127.0.0.1",  # 修改为你的 FunASR 服务器地址
         port=10096,        # 修改为你的FunASR服务器端口
         is_ssl=False,      # 根据服务器配置修改
         mode="2pass",      # 可选: "online", "offline", "2pass"

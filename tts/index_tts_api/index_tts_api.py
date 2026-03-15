@@ -103,7 +103,7 @@ if __name__ == '__main__':
     # 使用示例
     
     # 创建API客户端
-    api = IndexTTSAPI(server_host="192.168.1.1", server_port=11996)
+    api = IndexTTSAPI(server_host="127.0.0.1", server_port=11996)
     
     # 方式1: 使用本地音频文件作为参考（单个参考音频）
     print("=" * 60)
