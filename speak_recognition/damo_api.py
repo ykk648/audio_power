@@ -14,7 +14,7 @@ import traceback
 from funasr import AutoModel
 
 
-dir = 'resources/teste'
+dir = ''
 # opt_name=dir.split("\\")[-1].split("/")[-1]
 opt_name = os.path.basename(dir)
 

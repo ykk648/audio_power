@@ -136,3 +136,17 @@ results/
 preprocess/
 temp/
 resources/
+
+# 环境与密钥（勿提交真实 key）
+.env
+.env.local
+.env.*.local
+
+# 输出与临时
+output/*.list
+.DS_Store
+
+# IDE
+.vscode/
+*.swp
+*.swo

@@ -146,7 +146,7 @@ class SenseVoiceAPI:
                         parse_one(sub)
                 else:
                     parse_one(result)
-        
+
         # 如果没有获取到任何结果，返回空列表
         if not recon_segments:
             print("Warning: No transcription results returned from SenseVoice")
