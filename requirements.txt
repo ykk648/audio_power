@@ -5,3 +5,5 @@ python-dotenv
 scipy
 librosa
 funasr>=1.0.0
+alibabacloud-tea-openapi
+alibabacloud-tingwu20230930

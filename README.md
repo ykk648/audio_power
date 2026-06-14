@@ -12,6 +12,7 @@
 | **audio_translation** | 语音翻译：OpenAI、Azure、Cloudflare |
 | **tts** | 语音合成：Azure TTS、Bark、Coqui AI、CosyVoice、Index TTS |
 | **vc** / **voice_conversion** | 声音克隆/变声：RVC、SVC(So-VITS) |
+| **audio_dirazation** | 音视频转写/说话人分离：阿里云通义听悟（离线任务） |
 
 ## 环境要求
 
@@ -43,6 +44,9 @@ cp .env.example .env
 - `BYTEDANCE_APPID` / `BYTEDANCE_ACCESS_TOKEN`：火山引擎
 - `DASHSCOPE_API_KEY`：阿里 DashScope
 - `HF_ENDPOINT`：国内可设为 `https://hf-mirror.com` 加速下载
+- `ALIBABA_CLOUD_ACCESS_KEY_ID` / `ALIBABA_CLOUD_ACCESS_KEY_SECRET`：阿里云 AK
+- `TINGWU_APP_KEY`：通义听悟 AppKey
+- `TINGWU_REGION_ID` / `TINGWU_ENDPOINT`：听悟地域与接入点
 
 **密钥与配置请勿写入代码，仅通过环境变量使用。**
 
@@ -83,6 +87,28 @@ for ts in tss:
 
 参考 `examples/silent_whisper_speak_recognize.py`。
 
+### 通义听悟离线转写
+
+```python
+import os
+from dotenv import load_dotenv
+from audio_dirazation.tingwu import TingwuClient
+
+load_dotenv()
+client = TingwuClient(
+    access_key_id=os.getenv("ALIBABA_CLOUD_ACCESS_KEY_ID"),
+    access_key_secret=os.getenv("ALIBABA_CLOUD_ACCESS_KEY_SECRET"),
+    app_key=os.getenv("TINGWU_APP_KEY"),
+)
+payload = client.create_offline_task(file_url="https://example.com/demo.mp4", source_language="cn", speaker_count=2)
+task_id = client.extract_task_id(payload)
+task_info = client.wait_for_task(task_id)
+result_urls = client.extract_result_urls(task_info)
+client.download_result_files(result_urls, output_dir="work/tingwu/downloads")
+```
+
+CLI: `python -m audio_dirazation.tingwu.cli --file-url 'https://...' --source-language cn --speaker-count 2 --wait --download-results --export-srt`
+
 ### 翻译（OpenAI）
 
 使用 `audio_translation/openai_translate.py`，需在 `.env` 中配置 `OPENAI_API_KEY`。
@@ -106,6 +132,8 @@ audio_power/
 ├── tts/                  # 多引擎 TTS
 ├── vc/                   # RVC、SVC 变声
 ├── voice_conversion/     # 同上（兼容）
+├── audio_dirazation/     # 音视频转写/说话人分离（听悟）
+│   └── tingwu/           # 阿里云通义听悟
 ├── examples/             # 示例脚本
 ├── resources/            # 示例音频
 ├── pretrain_models/      # 预训练模型（需自行下载）
