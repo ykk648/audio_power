@@ -12,7 +12,7 @@
 | **audio_translation** | 语音翻译：OpenAI、Azure、Cloudflare |
 | **tts** | 语音合成：Azure TTS、Bark、Coqui AI、CosyVoice、Index TTS |
 | **vc** / **voice_conversion** | 声音克隆/变声：RVC、SVC(So-VITS) |
-| **audio_dirazation** | 音视频转写/说话人分离：阿里云通义听悟（离线任务） |
+| **audio_dirazation** | 音视频转写/说话人分离：阿里云通义听悟（离线任务）、FunASR/pyannote 短剧 diarization 实验归档 |
 
 ## 环境要求
 
@@ -28,6 +28,10 @@ pip install -r requirements.txt
 ```
 
 依赖包括：WhisperX、OpenAI、python-dotenv、scipy、librosa、FunASR 等，FCPE 从 GitHub 安装。
+FunASR API 与 pyannote 服务依赖较重，可按需单独安装：
+
+- `audio_dirazation/funasr/requirements.txt`
+- `audio_dirazation/pyannote/requirements.txt`
 
 ## 配置
 
@@ -47,6 +51,8 @@ cp .env.example .env
 - `ALIBABA_CLOUD_ACCESS_KEY_ID` / `ALIBABA_CLOUD_ACCESS_KEY_SECRET`：阿里云 AK
 - `TINGWU_APP_KEY`：通义听悟 AppKey
 - `TINGWU_REGION_ID` / `TINGWU_ENDPOINT`：听悟地域与接入点
+- `FUNASR_DEVICE` / `FUNASR_DEFAULT_MODEL`：本地 FunASR 实验 API 推理设备与默认模型
+- `PYANNOTE_MODEL_PATH` / `PYANNOTE_DEVICE`：pyannote 离线分离模型路径与推理设备
 
 **密钥与配置请勿写入代码，仅通过环境变量使用。**
 
@@ -109,6 +115,54 @@ client.download_result_files(result_urls, output_dir="work/tingwu/downloads")
 
 CLI: `python -m audio_dirazation.tingwu.cli --file-url 'https://...' --source-language cn --speaker-count 2 --wait --download-results --export-srt`
 
+### FunASR diarization 实验归档
+
+结论：不推荐将 FunASR 作为短剧 speaker diarization 主方案，主要原因是对白场景下 turn 切分和 speaker 归属不够稳定。
+
+保留 API 入口用于复现实验或临时对照：
+
+```bash
+cd audio_power
+python3.10 -m venv .venv-funasr --system-site-packages
+.venv-funasr/bin/pip install -r audio_dirazation/funasr/requirements.txt
+FUNASR_DEVICE=cuda:0 .venv-funasr/bin/uvicorn audio_dirazation.funasr.api:app --host 0.0.0.0 --port 8001
+```
+
+```bash
+curl http://127.0.0.1:8001/v1/audio/transcriptions \
+  -F file=@episode.mp3 \
+  -F model=sensevoice \
+  -F response_format=verbose_json \
+  -F spk=true \
+  -F preset_speaker_count=2
+```
+
+详情见 `audio_dirazation/funasr/README.md`。
+
+### pyannote 本地说话人分离（不做 ASR）
+
+`speaker-diarization-community-1` 只能做说话人分离，不做 ASR。它可以输出 speaker turn，但不会产生转写文本。
+
+原 `pyannote-diarization-eval` 的 `community-1` 模型快照已迁移到本机忽略目录：
+
+```bash
+pretrain_models/audio_dirazation/pyannote/community-1
+```
+
+CLI:
+
+```bash
+python -m audio_dirazation.pyannote.cli input.wav --num-speakers 2 --output-json work/pyannote/result.json
+```
+
+API:
+
+```bash
+PYANNOTE_DEVICE=auto python -m uvicorn audio_dirazation.pyannote.server:app --host 0.0.0.0 --port 8002
+```
+
+详情见 `audio_dirazation/pyannote/README.md`。
+
 ### 翻译（OpenAI）
 
 使用 `audio_translation/openai_translate.py`，需在 `.env` 中配置 `OPENAI_API_KEY`。
@@ -132,8 +186,10 @@ audio_power/
 ├── tts/                  # 多引擎 TTS
 ├── vc/                   # RVC、SVC 变声
 ├── voice_conversion/     # 同上（兼容）
-├── audio_dirazation/     # 音视频转写/说话人分离（听悟）
-│   └── tingwu/           # 阿里云通义听悟
+├── audio_dirazation/     # 音视频转写/说话人分离
+│   ├── tingwu/           # 阿里云通义听悟
+│   ├── funasr/           # FunASR diarization 实验归档
+│   └── pyannote/         # pyannote 分离 CLI/API（不做 ASR）
 ├── examples/             # 示例脚本
 ├── resources/            # 示例音频
 ├── pretrain_models/      # 预训练模型（需自行下载）
@@ -146,6 +202,7 @@ audio_power/
 
 - Damo ASR：见 `speak_recognition/damo_api.py` 内路径与 ModelScope 链接
 - Whisper / WhisperX：首次运行时会按 `download_root` 自动下载
+- pyannote community-1：默认路径 `pretrain_models/audio_dirazation/pyannote/community-1`
 - RVC / SVC：按各模块 README 或脚本内说明放置权重
 
 ## License
